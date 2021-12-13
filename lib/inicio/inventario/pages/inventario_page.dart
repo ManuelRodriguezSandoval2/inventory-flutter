@@ -53,7 +53,7 @@ class _InicioState extends State<Inicio> {
                               width: MediaQuery.of(context).size.width * 0.8,
                               child: SingleChildScrollView(
                                 child: Text(
-                                  codigoQR,
+                                  _.idProductoController.text,
                                   style: TextStyle(
                                       fontSize: 18,
                                       color: (!estadoQR)
@@ -89,7 +89,9 @@ class _InicioState extends State<Inicio> {
                                     BorderRadius.all(Radius.circular(20))),
                             onPressed: () async {
                               String? cameraScanResult = await scanner.scan();
-                              _.idProductoController.text = cameraScanResult!;
+                              //_.idProductoController.text = cameraScanResult!;
+                              _.setCodigo(cameraScanResult!);
+                              print(cameraScanResult);
                             },
                             child: Text(
                               'ESCANEAR',

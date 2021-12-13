@@ -20,6 +20,13 @@ class BodegaController extends GetxController {
     update();
   }
 
+  int? _idBodega;
+  int? get idBodega => _idBodega;
+  set idBodega(int? value) {
+    _idBodega = value;
+    update();
+  }
+
   obtenerBodegas() async {
     await BodegaApi.instance.consultaBodegaAPi().then((data) {
       if (data != null) {
@@ -33,6 +40,7 @@ class BodegaController extends GetxController {
         .consultaBodegaProductoAPi(bodegaproducto)
         .then((data) {
       if (data != null) {
+        idBodega = bodegaproducto;
         bodegasxproductos = data;
         print(bodegasxproductos);
       }

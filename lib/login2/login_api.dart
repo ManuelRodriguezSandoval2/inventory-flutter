@@ -10,7 +10,7 @@ class LoginApi {
   static LoginApi get instance => _instance;
 
   Future<Usuario?> login(String username, String password) async {
-    String? url = "http://10.0.2.2:8000/api/login";
+    String? url = "http://192.168.1.9:8000/api/login";
     Response response;
     Dio dio = new Dio();
     dio.options.headers["Accept"] = "application/json";

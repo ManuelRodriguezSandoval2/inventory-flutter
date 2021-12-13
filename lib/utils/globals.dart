@@ -1,3 +1,3 @@
 class Globals {
-  static String URL_SERVER = "http://10.0.2.2:8000/api";
+  static String URL_SERVER = "http://192.168.1.9:8000/api";
 }

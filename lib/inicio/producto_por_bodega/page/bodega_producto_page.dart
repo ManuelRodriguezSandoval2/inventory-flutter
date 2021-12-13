@@ -15,7 +15,7 @@ class BodegaProductoPage extends StatelessWidget {
                 title: Text("Productos almacenados"),
               ),
               body: Container(
-                color:Colors.orangeAccent,
+                color: Colors.orangeAccent,
                 child: Column(children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
