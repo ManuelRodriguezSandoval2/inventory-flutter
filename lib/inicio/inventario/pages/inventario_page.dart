@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/inicio/inventario/controller/inventario_controller.dart';
 import 'package:flutter_application_1/inicio/inventario/pages/qr_page.dart';
 import 'package:get/get.dart';
+import 'package:qrscan/qrscan.dart' as scanner;
 
 void main() => runApp(MyApp());
 
@@ -19,7 +20,7 @@ class Inicio extends StatefulWidget {
 
 class _InicioState extends State<Inicio> {
   String codigoQR = 'Aún no se ha escaneado un código...';
-  
+
   bool estadoQR = false;
 
   @override
@@ -35,10 +36,9 @@ class _InicioState extends State<Inicio> {
                 titleSpacing: 0,
               ),
               body: Stack(
-                
                 children: [
                   Container(
-                    color:Colors.teal,
+                      color: Colors.teal,
                       width: double.infinity,
                       height: double.infinity,
                       padding: EdgeInsets.all(10),
@@ -87,7 +87,10 @@ class _InicioState extends State<Inicio> {
                             shape: RoundedRectangleBorder(
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20))),
-                            onPressed: () => _navegarAlEscanner(context),
+                            onPressed: () async {
+                              String? cameraScanResult = await scanner.scan();
+                              _.idProductoController.text = cameraScanResult!;
+                            },
                             child: Text(
                               'ESCANEAR',
                               style: TextStyle(
@@ -101,8 +104,6 @@ class _InicioState extends State<Inicio> {
                 ],
               ));
         });
-
-        
   }
 
 /**
