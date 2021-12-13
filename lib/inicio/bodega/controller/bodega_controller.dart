@@ -1,6 +1,6 @@
-
 import 'package:flutter_application_1/inicio/bodega/api/bodega_api.dart';
 import 'package:flutter_application_1/inicio/producto_por_bodega/api/bodega_api.dart';
+import 'package:flutter_application_1/login2/login_controller.dart';
 import 'package:flutter_application_1/models/bodega_model.dart';
 import 'package:flutter_application_1/models/bodega_producto_model.dart';
 import 'package:get/get.dart';
@@ -11,9 +11,9 @@ class BodegaController extends GetxController {
   set bodegas(List<Bodega> data) {
     _bodegas = data;
     update();
-
   }
-    List<BodegaProducto> _bodegasxproductos = [];
+
+  List<BodegaProducto> _bodegasxproductos = [];
   List<BodegaProducto> get bodegasxproductos => _bodegasxproductos;
   set bodegasxproductos(List<BodegaProducto> data) {
     _bodegasxproductos = data;
@@ -29,7 +29,9 @@ class BodegaController extends GetxController {
   }
 
   obtenerBodegasProductos(int? bodegaproducto) async {
-    await BodegaProductoApi.instance.consultaBodegaProductoAPi(bodegaproducto).then((data) {
+    await BodegaProductoApi.instance
+        .consultaBodegaProductoAPi(bodegaproducto)
+        .then((data) {
       if (data != null) {
         bodegasxproductos = data;
         print(bodegasxproductos);
@@ -40,4 +42,12 @@ class BodegaController extends GetxController {
   /* editarProducto(Bodega producto) {
     Get.toNamed('/editar_producto', arguments: [producto]);
   } */
+
+  @override
+  void onInit() {
+    // TODO: implement onInit
+    super.onInit();
+    var _loginController = Get.find<LoginController>();
+    print(_loginController.usuarioLogin!.accessToken);
+  }
 }

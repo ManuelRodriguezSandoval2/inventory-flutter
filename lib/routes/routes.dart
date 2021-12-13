@@ -6,6 +6,7 @@ import 'package:flutter_application_1/inicio/editar_producto/editar_producto_pag
 import 'package:flutter_application_1/inicio/inicio_page.dart';
 import 'package:flutter_application_1/inicio/inventario/pages/inventario_page.dart';
 import 'package:flutter_application_1/inicio/producto_por_bodega/page/bodega_producto_page.dart';
+import 'package:flutter_application_1/login2/login_page.dart';
 import 'package:get/route_manager.dart';
 
 routes() => [
@@ -45,5 +46,9 @@ routes() => [
       GetPage(
         name: '/realizar_inventario',
         page: () => MyApp(),
+      ),
+      GetPage(
+        name: '/login',
+        page: () => LoginPage(),
       ),
     ];
