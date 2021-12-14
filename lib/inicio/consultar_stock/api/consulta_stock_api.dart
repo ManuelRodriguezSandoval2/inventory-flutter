@@ -1,6 +1,7 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_application_1/login2/login_controller.dart';
 import 'package:flutter_application_1/models/consulta_stock_model.dart';
-
+import 'package:get/get.dart' as getx;
 import 'package:flutter_application_1/utils/globals.dart';
 
 class ConsultaStockApi {
@@ -11,9 +12,13 @@ class ConsultaStockApi {
   consultaStockApi(String? idProducto) async {
     String? url = Globals.URL_SERVER + "/obtener_ingreso";
     Response response;
+    var _loginController = getx.Get.find<LoginController>();
     Dio dio = new Dio();
     dio.options.headers["Accept"] = "application/json";
     dio.options.responseType = ResponseType.plain;
+    dio.options.headers["Authorization"] =
+        'Bearer ${_loginController.usuarioLogin!.accessToken}';
+
     try {
       response = await dio
           .get(url, queryParameters: {

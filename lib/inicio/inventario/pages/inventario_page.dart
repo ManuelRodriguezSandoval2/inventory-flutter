@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_application_1/inicio/inventario/controller/inventario_controller.dart';
 import 'package:flutter_application_1/inicio/inventario/pages/qr_page.dart';
 import 'package:get/get.dart';
@@ -19,7 +20,7 @@ class Inicio extends StatefulWidget {
 }
 
 class _InicioState extends State<Inicio> {
-  String codigoQR = 'Aún no se ha escaneado un código...';
+  String? codigoQR = 'Aún no se ha escaneado un código...';
 
   bool estadoQR = false;
 
@@ -30,6 +31,7 @@ class _InicioState extends State<Inicio> {
         builder: (_) {
           return Scaffold(
               appBar: AppBar(
+                backgroundColor: Colors.green,
                 /* 
           leading: Icon(Icons.qr_code), */
                 title: Text('Módulo de inventario'),
@@ -38,7 +40,7 @@ class _InicioState extends State<Inicio> {
               body: Stack(
                 children: [
                   Container(
-                      color: Colors.teal,
+                      color: Colors.blueAccent,
                       width: double.infinity,
                       height: double.infinity,
                       padding: EdgeInsets.all(10),
@@ -49,37 +51,21 @@ class _InicioState extends State<Inicio> {
                             elevation: 10.0,
                             child: Container(
                               padding: EdgeInsets.all(8),
-                              height: MediaQuery.of(context).size.height * 0.3,
+                              height: MediaQuery.of(context).size.height * 0.4,
                               width: MediaQuery.of(context).size.width * 0.8,
                               child: SingleChildScrollView(
                                 child: Text(
                                   _.idProductoController.text,
                                   style: TextStyle(
-                                      fontSize: 18,
+                                      fontSize: 40,
                                       color: (!estadoQR)
-                                          ? Colors.black26
+                                          ? Colors.black
                                           : Colors.black),
                                 ),
                               ),
                             ),
                           ),
 
-                          TextFormField(
-                            controller: _.cantidadController,
-                            decoration: const InputDecoration(
-                              hintText: 'Ingrese cantidad de productos',
-                            ),
-                          ),
-
-                          ElevatedButton(
-                              style: ElevatedButton.styleFrom(
-                                  primary: Colors.green),
-                              onPressed: () {
-                                // ingresarInventario();
-                                print(codigoQR);
-                                print(_.cantidadController.text);
-                              },
-                              child: Text("Registrar")),
                           /*  */
                           // ignore: deprecated_member_use
                           RaisedButton(
@@ -88,10 +74,10 @@ class _InicioState extends State<Inicio> {
                                 borderRadius:
                                     BorderRadius.all(Radius.circular(20))),
                             onPressed: () async {
-                              String? cameraScanResult = await scanner.scan();
+                              codigoQR = await scanner.scan();
                               //_.idProductoController.text = cameraScanResult!;
-                              _.setCodigo(cameraScanResult!);
-                              print(cameraScanResult);
+                              _.setCodigo(codigoQR!);
+                              print(codigoQR);
                             },
                             child: Text(
                               'ESCANEAR',
@@ -101,6 +87,26 @@ class _InicioState extends State<Inicio> {
                                   letterSpacing: 7.0),
                             ),
                           ),
+
+                          TextFormField(
+                            keyboardType: TextInputType.number,
+                            
+                            style: TextStyle(fontSize: 25, color: Colors.black),
+                            controller: _.cantidadController,
+                            decoration: const InputDecoration(
+                              hintText: 'Ingrese cantidad de productos',
+                            ),
+                          ),
+
+                          ElevatedButton(
+                            
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.green),
+                              onPressed: () {
+                                
+                                _.ingresarInventario();
+                              },
+                              child: Text("Registrar")),
                         ],
                       )),
                 ],
@@ -111,7 +117,7 @@ class _InicioState extends State<Inicio> {
 /**
  * Esta función permite navegar a la pantalla del scanner y esperar el resultado para mostrarlo
  */
-  _navegarAlEscanner(BuildContext context) async {
+  /* _navegarAlEscanner(BuildContext context) async {
     this.codigoQR = 'Aún no se ha escaneado un código...';
     this.estadoQR = false;
     String result = await Navigator.push(
@@ -124,5 +130,5 @@ class _InicioState extends State<Inicio> {
         this.estadoQR = true;
       }
     });
-  }
+  } */
 }

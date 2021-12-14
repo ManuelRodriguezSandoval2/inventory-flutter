@@ -1,12 +1,19 @@
+
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+
+import 'controller/home_controller.dart';
 
 class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    return GetBuilder<HomeController>(
+        init: HomeController(),
+        builder: (_) {
     return new Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.blue,
+          backgroundColor: Colors.green,
           title: Text("Menú Principal"),
         ),
         body: Container(
@@ -15,13 +22,11 @@ class HomePage extends StatelessWidget {
           new Container(
             decoration: new BoxDecoration(
               gradient: LinearGradient(
-                begin: Alignment.topLeft,
-                end: Alignment.bottomRight,
                 stops: [0.0, 0.5, 0.9],
                 colors: [
-                  Colors.orangeAccent,
-                  Colors.orange,
-                  Colors.deepOrange,
+                  Colors.white38,
+                  Colors.white,
+                  Colors.white10,
                 ],
               ),
             ),
@@ -29,22 +34,22 @@ class HomePage extends StatelessWidget {
 
           Positioned(
             child: Padding(
-              padding: const EdgeInsets.all(55.0),
+              padding: const EdgeInsets.all(20.0),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Card(
                     elevation: 10.0,
                     color: Colors.teal,
-                    margin: EdgeInsets.only(left: 20, right: 20),
+                    margin: EdgeInsets.only(left: 5, right: 5),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(15)),
                     child: Padding(
-                      padding: const EdgeInsets.all(50.0),
+                      padding: const EdgeInsets.all(100.0),
                       child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisAlignment: MainAxisAlignment.start,
                         children: <Widget>[
-                        
+                       
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
                                   primary: Colors.green),
@@ -54,7 +59,7 @@ class HomePage extends StatelessWidget {
                               child: Text("Lista de bodegas")),
                           ElevatedButton(
                               style: ElevatedButton.styleFrom(
-                                  primary: Colors.lime),
+                                  primary: Colors.red),
                               onPressed: () {
                                 Get.toNamed('/consulta_stock');
                               },
@@ -63,10 +68,20 @@ class HomePage extends StatelessWidget {
                       ),
                     ),
                   ),
+
+                  ElevatedButton(
+                              style: ElevatedButton.styleFrom(
+                                  primary: Colors.blue),
+                              onPressed: () {
+                                Get.toNamed('/login');
+                              },
+                              child: Text("Cerrar sessión")),
                 ],
               ),
             ),
           )
         ])));
+        }
+    );
   }
 }

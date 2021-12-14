@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_application_1/login2/login_api.dart';
 import 'package:get/get.dart';
 
@@ -24,10 +25,13 @@ class LoginController extends GetxController {
       if (value != null) {
         usuarioLogin = value;
         //Navegar menu
-        Get.toNamed('/lista_bodegas');
+        Get.toNamed('/home');
       }
     }).catchError((error) {
-      Get.snackbar("asd", error.toString());
+      Get.snackbar(" ", error.toString(),
+      colorText:Colors.black,
+      backgroundColor: Colors.red);
+     // print(error.toString());
     });
   }
 }

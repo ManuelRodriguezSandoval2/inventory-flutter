@@ -14,13 +14,14 @@ class BodegaPage extends StatelessWidget {
 
           return Scaffold(
               appBar: AppBar(title: Text("Menú Bodegas"),
+              backgroundColor: Colors.green,
               ),
               body: Container(
-                  color:Colors.orangeAccent,
+                  color:Colors.blueAccent,
                 child: Column(children: [
                   /* Text("Lista de bodegas"), */
                   ElevatedButton(
-                      style: ElevatedButton.styleFrom(primary: Colors.green),
+                      style: ElevatedButton.styleFrom(primary: Colors.red),
                       onPressed: () {
                         _.obtenerBodegas();
                       },
@@ -52,7 +53,7 @@ class BodegaPage extends StatelessWidget {
                                               ElevatedButton(
                                                   style:
                                                       ElevatedButton.styleFrom(
-                                                          primary: Colors.indigoAccent),
+                                                          primary: Colors.red),
                                                   onPressed: () {
                                                     _.obtenerBodegasProductos(
                                                         _.bodegas[i].idBodega);
@@ -62,7 +63,7 @@ class BodegaPage extends StatelessWidget {
                                                         '/lista_bodegas_productos');
                                                   },
                                                   child: Text(
-                                                      "Productos almacenados"))
+                                                      "Ingresar a bodega"))
                                             ],
                                             
                                           ),

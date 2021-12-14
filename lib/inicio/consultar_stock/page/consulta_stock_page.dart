@@ -15,6 +15,7 @@ final myController = TextEditingController();
           return new Scaffold(
             
               appBar: AppBar(
+                backgroundColor: Colors.green,
                 title: Text("Consultar stock")
               ),
               

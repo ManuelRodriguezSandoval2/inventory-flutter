@@ -13,9 +13,10 @@ class BodegaProductoPage extends StatelessWidget {
           return Scaffold(
               appBar: AppBar(
                 title: Text("Productos almacenados"),
+                backgroundColor: Colors.green,
               ),
               body: Container(
-                color: Colors.orangeAccent,
+                color: Colors.blueAccent,
                 child: Column(children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),
