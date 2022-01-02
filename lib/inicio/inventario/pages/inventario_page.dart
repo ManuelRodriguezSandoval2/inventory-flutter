@@ -40,7 +40,7 @@ class _InicioState extends State<Inicio> {
               body: Stack(
                 children: [
                   Container(
-                      color: Colors.blueAccent,
+                      color: Colors.blue[300],
                       width: double.infinity,
                       height: double.infinity,
                       padding: EdgeInsets.all(10),

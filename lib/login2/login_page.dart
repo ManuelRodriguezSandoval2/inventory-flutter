@@ -60,6 +60,9 @@ class LoginPage extends StatelessWidget {
                               ),
                               TextField(
                                 controller: _.passwordController,
+                                obscureText: true,
+                                enableSuggestions: false,
+                                autocorrect: false,
                                 decoration: InputDecoration(
                                     prefixIcon: Icon(Icons.lock),
                                     hintText: "Contraseña"),

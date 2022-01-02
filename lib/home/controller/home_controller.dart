@@ -10,7 +10,15 @@ class HomeController extends GetxController {
     // TODO: implement onInit
     super.onInit();
     var _loginController = Get.find<LoginController>();
-    print(_loginController.usuarioLogin!.accessToken);
+/*     String? estado=_loginController.usuarioLogin!.usuario!.estado;
+    print(_loginController.usuarioLogin!.usuario!.estado);
+  if(identical(estado,0)){
+
+    print("Esta desactivado");
+  }else{
+    print("No esta desactivado");
+  } */
+   
   }
 
 }

@@ -1,5 +1,6 @@
 import 'package:flutter_application_1/crear_producto/crear_producto_page.dart';
 import 'package:flutter_application_1/home/home_page.dart';
+import 'package:flutter_application_1/inicio/bloqueado/bloqueado_page.dart';
 import 'package:flutter_application_1/inicio/bodega/page/bodega_page.dart';
 import 'package:flutter_application_1/inicio/consultar_stock/page/consulta_stock_page.dart';
 import 'package:flutter_application_1/inicio/editar_producto/editar_producto_page.dart';
@@ -50,5 +51,10 @@ routes() => [
       GetPage(
         name: '/login',
         page: () => LoginPage(),
+      ),
+
+      GetPage(
+        name: '/bloqueado',
+        page: () => BloqueadoPage(),
       ),
     ];

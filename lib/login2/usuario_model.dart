@@ -10,10 +10,10 @@ String usuarioToJson(Usuario data) => json.encode(data.toJson());
 
 class Usuario {
   Usuario({
-    this.accessToken,
-    this.tokenType,
-    this.expiresAt,
-    this.usuario,
+     this.accessToken,
+        this.tokenType,
+        this.expiresAt,
+        this.usuario,
   });
 
   String? accessToken;
@@ -42,20 +42,20 @@ class Usuario {
 
 class UsuarioClass {
   UsuarioClass({
-    this.idUsuario,
-    this.rut,
-    this.username,
-    this.email,
-    this.nombre,
-    this.apellidoPaterno,
-    this.apellidoMaterno,
-    this.direccion,
-    this.tipoPermiso,
-    this.estado,
-    this.idCiudad,
-    this.createdAt,
-    this.updatedAt,
-  });
+        this.idUsuario,
+        this.rut,
+        this.username,
+        this.email,
+        this.nombre,
+        this.apellidoPaterno,
+        this.apellidoMaterno,
+        this.direccion,
+        this.idRol,
+        this.estado,
+        this.idCiudad,
+        this.createdAt,
+        this.updatedAt,
+    });
 
   int? idUsuario;
   String? rut;
@@ -65,7 +65,7 @@ class UsuarioClass {
   String? apellidoPaterno;
   String? apellidoMaterno;
   String? direccion;
-  String? tipoPermiso;
+  int ?idRol;
   String? estado;
   int? idCiudad;
   DateTime? createdAt;
@@ -82,7 +82,7 @@ class UsuarioClass {
         apellidoMaterno:
             json["apellido_materno"] == null ? null : json["apellido_materno"],
         direccion: json["direccion"] == null ? null : json["direccion"],
-        tipoPermiso: json["tipo_permiso"] == null ? null : json["tipo_permiso"],
+        idRol: json["id_rol"] == null ? null : json["id_rol"],
         estado: json["estado"] == null ? null : json["estado"],
         idCiudad: json["id_ciudad"] == null ? null : json["id_ciudad"],
         createdAt: json["created_at"] == null
@@ -102,7 +102,7 @@ class UsuarioClass {
         "apellido_paterno": apellidoPaterno == null ? null : apellidoPaterno,
         "apellido_materno": apellidoMaterno == null ? null : apellidoMaterno,
         "direccion": direccion == null ? null : direccion,
-        "tipo_permiso": tipoPermiso == null ? null : tipoPermiso,
+        "id_rol": idRol == null ? null : idRol,
         "estado": estado == null ? null : estado,
         "id_ciudad": idCiudad == null ? null : idCiudad,
         "created_at": createdAt == null ? null : createdAt!.toIso8601String(),

@@ -16,7 +16,7 @@ class BodegaProductoPage extends StatelessWidget {
                 backgroundColor: Colors.green,
               ),
               body: Container(
-                color: Colors.blueAccent,
+                color: Colors.blue[200],
                 child: Column(children: [
                   ElevatedButton(
                       style: ElevatedButton.styleFrom(primary: Colors.red),

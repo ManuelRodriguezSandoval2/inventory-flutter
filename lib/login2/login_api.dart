@@ -20,11 +20,13 @@ class LoginApi {
         "username": username,
         "password": password
       }).timeout(const Duration(seconds: 10));
-      print(response.data.toString());
+     /*  print(response.data.toString()); */
       switch (response.statusCode) {
         case 200:
           Usuario usuario = usuarioFromJson(response.data);
+        /*   print(response.data); */
           return usuario;
+          
         default:
           throw Exception("Error al iniciar sesion");
       }

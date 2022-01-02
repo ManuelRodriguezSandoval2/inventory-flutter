@@ -17,20 +17,22 @@ class HomePage extends StatelessWidget {
           title: Text("Menú Principal"),
         ),
         body: Container(
+          color: Colors.green,
+          
             child: Stack(children: <Widget>[
           ///////////  background///////////
           new Container(
-            decoration: new BoxDecoration(
-              gradient: LinearGradient(
-                stops: [0.0, 0.5, 0.9],
-                colors: [
-                  Colors.white38,
-                  Colors.white,
-                  Colors.white10,
-                ],
+                decoration: new BoxDecoration(
+                  gradient: LinearGradient(
+                    stops: [0.0, 0.5, 0.9],
+                    colors: [
+                      Colors.white38,
+                      Colors.white,
+                      Colors.white10,
+                    ],
+                  ),
+                ),
               ),
-            ),
-          ),
 
           Positioned(
             child: Padding(
