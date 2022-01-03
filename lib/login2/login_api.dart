@@ -29,9 +29,10 @@ class LoginApi {
           
         default:
           throw Exception("Error al iniciar sesion");
+          
       }
     } on Exception catch (e) {
-      throw Exception("Error al iniciar sesion");
+      throw Exception("¡Atención!");
     }
   }
 }
