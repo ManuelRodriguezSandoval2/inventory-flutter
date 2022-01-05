@@ -12,7 +12,7 @@ class BodegaApi {
   static BodegaApi get instance => _instance;
 
   Future<List<Bodega>?> consultaBodegaAPi() async {
-    String? url = Globals.URL_SERVER + "/obtener_bodega";
+    String? url = Globals.URL_SERVER + "/obtener_bodega_movil";
     Response response;
     var _loginController = getx.Get.find<LoginController>();
     Dio dio = new Dio();
