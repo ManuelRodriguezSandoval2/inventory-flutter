@@ -10,7 +10,7 @@ class ConsultaStockApi {
   static ConsultaStockApi get instance => _instance;
 
   consultaStockApi(String? idProducto) async {
-    String? url = Globals.URL_SERVER + "/obtener_ingreso";
+    String? url = Globals.URL_SERVER + "/obtener_stock";
     Response response;
     var _loginController = getx.Get.find<LoginController>();
     Dio dio = new Dio();
